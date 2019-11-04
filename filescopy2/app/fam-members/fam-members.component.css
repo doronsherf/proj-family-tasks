@@ -1,0 +1,20 @@
+div{
+	background:lightsteelblue;
+	/* display: inline-block; */
+	display: table;
+    margin: 4px;
+    padding: 2px;
+	text-align: left;
+	line-height: 20px;
+	width:95% ;
+}
+
+h5{
+	border: 1px solid darkblue;
+	background: wheat; 
+}
+h6{
+	display: table-cell;
+	border: 1px solid darkblue;
+	background: wheat; 
+}

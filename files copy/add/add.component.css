@@ -1,0 +1,20 @@
+
+form {  
+	background:lightsteelblue;
+	font-size: 0.75em;
+	padding: 2px;
+	line-height: 30px;
+  }
+
+  form input select {  
+	margin-top: 1em; 
+	background: wheat; 
+
+  } 
+
+span{
+	font-size: 0.5em;
+	font-weight: bold;
+	color: red;
+	margin-left: 2px; 
+}

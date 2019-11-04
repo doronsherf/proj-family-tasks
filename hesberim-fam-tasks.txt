@@ -1,0 +1,156 @@
+PROJECT DESCRIPTION 
+**********************
+A simple to do app
+with main page with only 3 possible actions:
+ 	ALL:Retrieve and display all tasks list from DB collection:tasks.
+	ADD: a new task to DB collection:tasks.
+	Family members: View the family members second collection in the DB
+
+Technologies Used
+************************
+Using EXPRESS packags
+Using MONGOOSE package to handle Mongo DB 
+Using ANGULAR for the client side
+
+BEFORE RUNING INSTRUCTIONS
+***************************
+Create mongoDB according this project format (as defined in:index.js):
+//thrue 'Robo 3T'(or other MongoDB management tool) create a DB with 2 collections:
+1	mongoDB Database Name: family,
+	PORT: localhost:27017,
+2	collection 1. name: taskscollections
+	source data for collection 1: mongoDB-collection1-taskscollections.json
+3	collection 2. name: familymembers
+	source data for collection 2: mongoDB-collectiom2-familymembers.json
+ *	collection 2 must be created, the program do not build it.
+ *	collection 1, you may skip on it, runing the project would build it if it is not exist
+
+PROJECT RUN INSTRACTIONS 
+***************************
+1. Run the DB server side (localhost:3000):
+	C:\project_folder> nodemon index.js
+2. Run the angular client side (localhost:4200):
+	C:\project_folder\client> ng s -o 
+
+
+PROJECT CONFIG DOCUMENTATION 
+***************************
+1. npm init
+	C:\project_folder> npm init
+	// creat package.json with all default declrations and listing existing dependencies
+2. express
+	C:\project_folder> npm i express
+	// install 'express' package - created the node modoules
+
+3. mongoose
+	C:\project_folder> npm i mongoose  
+	// install mongoose package: an express package to handle mongoDB 
+	
+4. CORS  instaling the express cors package
+	C:\project_folder> npm i cors 
+
+5. starting the mongo DB: 
+	1.go to windows task manager(Ctrl+Alt+Del)2.open: Services. 3.find MongoDB. 4. make MongoDB run(right mouse btn)
+
+6. install nodemon - needed only once to install nodemon globally: 
+	C:\ npm install -g nodemon 
+	
+7. Run the project (DB server side)
+	C:\project_folder> nodemon index.js
+	Run the project. automatic restart the node application whenever index.js is changed(while developing). 
+
+PROJECT CONFIG INSTRACTIONS ANGULAR CLIENT 
+*******************************************
+1. CREATE ANGULR CLIENT
+	C:\project_folder> ng new client 
+	// angulr CLI build new folder for the new angular project (to do the client programing)
+	
+**DONT FORGET TO MOVE TO THE NEW CLIENT FOLDER			
+	C:\project_folder> md client
+	C:\project_folder> cd client
+	
+2. Generate the components
+	C:\project_folder\client> ng g c add --skipTests  
+	C:\project_folder\client> ng g c all --skipTests  	
+	C:\project_folder\client> ng g c fam_members --skipTests
+	C:\project_folder\client> ng g c NotFoundComponent  --skipTests
+	* DELETE operations  are executed in 'All' component
+
+3. Generate the Services
+	C:\project_folder\client> ng g s tasks
+	C:\project_folder\client> ng g s family 
+
+4. Run ANGULAR CLI (dev. mode)
+	C:\project_folder\client> ng s -o 
+	
+5. BIND THE MAIN COMPONENT TO SUB COMPONENTS 
+	USE: INTERNAL PATHES(linking betwin components)
+	usualy the main component(app.component.html) contain a nav-bar
+	A. in: app-routing.module declair routes to 'ALL','ADD', 'FAM-MRMBERS' ets. to the acting component
+	B. In 'app.component.html' creat nav-bar or buttons routerLink
+
+ALL COMPONENT
+	A.writing(in all.component.ts) the show_all_tasks() func. and subscrib the func to the service func. tsk_srvc.get_all_tasks() + using the func. (in all.component.html)
+	B.writing(in all.component.ts) the func. del_a_tsk(tsk2del) and subscrib it to del_task(tsk2del) (tasks service func.) + using the func. (in all.component.html)
+	C.writing(in all.component.ts) the func. get_fam_membrs and subscrib it to getFamily (family service func.) + using the func. for choosing fam member by code in all.component.html
+
+ADD COMPONENT
+	A.writing the inputs into add.component.html (in: C:\project_folder\client2\src\app\add\):
+ 		<input type="text/number/date" placeholder="task" formControlName="descrptn">
+	B. Adding to app.moudules.ts: 
+	 	import { ReactiveFormsModule } from '@angular/forms' + 
+		  imports: [... ,ReactiveFormsModule]
+	C. building the func. add_task() (in add.component.ts) + using the func. (in add.component.html)
+	D. and using logic in  add.component.ts in 'ngOnInit() {' section: 
+		Declairing FormGroup for few FormControl statments
+ 		using FormControl to each 'input box'
+
+FAMILY COMPONENT
+	A.writing(in fam_membrs.component.ts) insid the 'ngOnInit() {' func.(with no name) and subscrib the func getFamily() from the family Service + using the func. the writing directly insid the 'ngOnInit() {' make it called with no need to give the function a name in sepatate declration. 
+			 
+
+Services programing tips
+	1. Injecting the service to the constractor
+		import {httpClientModule} from '@angular/common/http'; 
+ 		add to imports: [...	httpClientModule]
+
+TASKS SERVICE 
+	contain a function that get all taskas from the DB.
+	contain a function that get task and post(send) the task to the DB.
+	contain a function Delete the task from the DB.
+
+FAMILY SERVICE 
+	contain a function that get all fam members from the DB.
+
+ROUTING UPDATING
+Update	app-routing.module.ts
+	1. import all the components that make routing requests and/or use routing responses
+	2. update all the routes we use into: Routes = [..]
+
+
+
+EXAMPLES OF DB ACTIONS (can be excuted thrue 'postman')
+********************************************************
+1.  GET ALL: bring all tasks
+	GET   http://localhost:3000/all_tasks  bring all tasks
+2.	GET a task by id
+	GET http://localhost:3000/task/5d9b6e0333fa543cc027eea3
+3. Create a new task
+	POST http://localhost:3000/new_task 
+	body:
+	{
+		"task_numbr":20,
+		"descrptn":"ga ga 20",
+		"created":"2020-01-11T23:00:00.000Z",
+		"hendler":"snom"
+	}
+4. Delete task
+	GET http://localhost:3000/del/5dbac2f5daf78050743c6d65 (pay atention: header with with GET (not DELETE))
+5.  GET ALL Family Members
+	GET   http://localhost:3000/all_fam  bring all family list
+
+
+GENERAL INFO 
+***************************
+www.mongoosejs.com -> official site of mongoDB
+https://angular.io -> official site of Angular

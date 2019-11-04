@@ -1,0 +1,44 @@
+/* 1 */
+{
+    "_id" :  "5da2d87a378420f0f1381a18" ,
+    "famid" : 0,
+    "name" : "Anny",
+    "nick" : "mom",
+    "role" : "mother"
+}
+
+/* 2 */
+{
+    "_id" :  "5da2d968378420f0f1381a67" ,
+    "famid" : 1,
+    "name" : "Leon",
+    "nick" : "pah",
+    "role" : "father"
+}
+
+/* 3 */
+{
+    "_id" :  "5da2d9d3378420f0f1381a91" ,
+    "famid" : 2,
+    "name" : "Yaakov",
+    "nick" : "jack",
+    "role" : "sun1"
+}
+
+/* 4 */
+{
+    "_id" :  "5da2da16378420f0f1381aa7" ,
+    "famid" : 3,
+    "name" : "Shlomo",
+    "nick" : "snom",
+    "role" : "sun2"
+}
+
+/* 5 */
+{
+    "_id" :  "5da2da62378420f0f1381acc" ,
+    "famid" : 4,
+    "name" : "Moshe",
+    "nick" : "muss",
+    "role" : "sun3"
+}
