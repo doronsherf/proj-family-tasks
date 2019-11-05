@@ -154,3 +154,40 @@ GENERAL INFO
 ***************************
 www.mongoosejs.com -> official site of mongoDB
 https://angular.io -> official site of Angular
+GIT Tutorial: https://www.sbf5.com/~cduan/technical/git/git-1.shtml
+
+
+
+GIT:  versions control system
+**************************** 
+1. git init	
+	C:\project_folder> git init
+	// Create a repository for the project: Creates '.git' folder inside the project folder 
+	( In this case: C:\dor12_proj_family_tasks00\family_tasks00> git init )
+2. 	git status
+	C:\project_folder> git status
+	// to see what files were changed.
+5.	git add .
+	C:\project_folder>git add .
+	// Add all modified and new files to the current Commit Object.
+3. Commit Object contains: 
+	1) files of a project at current stage. 2) References to parent commit objects. 3) SHA1 name: commit object name
+
+4. git log --oneline
+	C:\project_folder>
+	// showing  all commits - each commit to a single line
+
+
+C:\dor15-rect3\flights-Copy>git status
+
+C:\dor15-rect3\flights-Copy\flights_copy>git commit -m "change 1 app.js"
+
+C:\dor15-rect3\flights-Copy\flights_copy>git log --onelin
+
+git checkout master
+
+C:\dor15-rect3\flights-Copy>git remote add origin https://github.com/doronsherf/demogit.git
+
+C:\dor15-rect3\flights-Copy>git push
+    git push --set-upstream origin master
+git push --all
