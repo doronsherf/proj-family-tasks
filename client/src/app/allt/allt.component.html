@@ -1,0 +1,21 @@
+<hr>
+<h3>All Tasks</h3>
+
+<div *ngFor="let tsk of all_tasks_arr">
+<button (click)="del_a_tsk(tsk)">Delete </button>
+
+	<h6>{{tsk.task_numbr}}</h6>
+	<h6>{{tsk.descrptn}}</h6>
+    <h6>{{ tsk.created | date : "d/M/yy H:mm" }} </h6>  <!-- pipe for presenting a date format-->
+	
+	<!-- tsk.hendler -->
+	<ng-container *ngFor="let fam_membr of fam_membrs_arr let i = index" > 
+		                <!--looping thru fam_membrs array' find and display nick (and not the code(famid) came from the  DB-->
+		<h6 *ngIf = "i=== 1*tsk.hendler"> {{fam_membr.nick}} </h6> 
+		            <!-- turning the string'hendler' to number by 1*tsk.hendler(JS trick) -->
+	</ng-container>
+</div>
+<hr>
+
+
+

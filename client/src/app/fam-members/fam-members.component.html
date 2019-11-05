@@ -1,0 +1,31 @@
+<div> 
+	<h3>Family Members:</h3>
+
+	<div *ngFor="let fam1membr of fam_membrs_arr">
+		<h6>
+			{{fam1membr.famid+1}}
+			{{fam1membr.nick}}   
+		</h6>
+
+	</div>
+
+<hr>
+<h4> Family Member Full Details: 
+
+	<select [(ngModel)] = chosen_num >
+		<option *ngFor="let fam_membr of fam_membrs_arr" value={{fam_membr.famid}} >
+		{{fam_membr.famid + 1}}.{{fam_membr.nick}}
+	</select>
+</h4>
+<!-- label  -->
+	<h5 *ngIf="chosen_num" > 
+		<p> name:      {{fam_membrs_arr[chosen_num].name}} </p>
+		<p> Nick name: {{fam_membrs_arr[chosen_num].nick}} </p>
+		<p> Role:      {{fam_membrs_arr[chosen_num].role}} </p>
+	</h5>
+
+
+
+
+
+
