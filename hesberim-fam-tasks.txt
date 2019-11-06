@@ -166,28 +166,35 @@ GIT:  versions control system
 	( In this case: C:\dor12_proj_family_tasks00\family_tasks00> git init )
 2. 	git status
 	C:\project_folder> git status
-	// to see what files were changed.
-5.	git add .
+	// to see what files were changed since the priviouse "git add".
+	// RED : files were not yet added to the commit = were not yet STAGED) 
+	// Green: files were STAGED (added to the commit) 
+3.	git add .
 	C:\project_folder>git add .
-	// Add all modified and new files to the current Commit Object.
-3. Commit Object contains: 
-	1) files of a project at current stage. 2) References to parent commit objects. 3) SHA1 name: commit object name
+	// Tell Git which files to include in the commit Object. But do not buils the new commit object!
+	
+4	git commit -m
+	C:\project_folder> git commit -m "<your_message>"
+	// Add all modified and new files, that were added(by add command) to new Commit Object.
+* 	* Commit Object contains: 
+	1) Changes that have been made in the project files 2) References to parent commit objects. 3) SHA1 name: commit object name
+	
+5. git log --oneline
+	C:\project_folder> git log --oneline
+	// showing  all commits - each commit in a single line
 
-4. git log --oneline
-	C:\project_folder>
-	// showing  all commits - each commit to a single line
+
+6. 	A.CREATE A NEW REMOTE REPOSITORY  - NEEDED ONLY ONE TIME:
+	(in git service provider such as: github.com,  Bitbucket)
+	C:\project_folder> git remote add origin [remote-repository-link] 
+	C:\project_folder> git remote add origin https://github.com/doronsherf/testin_repository.git
+
+	B. PUSH TO REMOTE REPOSITORY ONLY THE FIRST TIME:
+	C:\project_folder> git push -u origin master
+
+7. 	git push --all after 
+	C:\project_folder> git push --all
+	// sending the commits to be stored in the REMOTE REPOSITORY (www.github.com)
 
 
-C:\dor15-rect3\flights-Copy>git status
-
-C:\dor15-rect3\flights-Copy\flights_copy>git commit -m "change 1 app.js"
-
-C:\dor15-rect3\flights-Copy\flights_copy>git log --onelin
-
-git checkout master
-
-C:\dor15-rect3\flights-Copy>git remote add origin https://github.com/doronsherf/demogit.git
-
-C:\dor15-rect3\flights-Copy>git push
-    git push --set-upstream origin master
-git push --all
+	git checkout master
