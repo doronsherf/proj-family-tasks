@@ -65,16 +65,15 @@ PROJECT CONFIG INSTRACTIONS ANGULAR CLIENT
 	C:\project_folder> ng new client 
 	// angulr CLI build new folder for the new angular project (to do the client programing)
 	
-**DONT FORGET TO MOVE TO THE NEW CLIENT FOLDER			
-	C:\project_folder> md client
+**DONT FORGET TO MOVE TO THE NEW CLIENT FOLDER	
 	C:\project_folder> cd client
 	
 2. Generate the components
-	C:\project_folder\client> ng g c add --skipTests  
-	C:\project_folder\client> ng g c all --skipTests  	
+	C:\project_folder\client> ng g c addt --skipTests  
+	C:\project_folder\client> ng g c allt --skipTests  	
 	C:\project_folder\client> ng g c fam_members --skipTests
 	C:\project_folder\client> ng g c NotFoundComponent  --skipTests
-	* DELETE operations  are executed in 'All' component
+	* DELETE operations  are executed in 'allt' component
 
 3. Generate the Services
 	C:\project_folder\client> ng g s tasks
@@ -171,7 +170,7 @@ GIT:  versions control system
 	// Green: files were STAGED (added to the commit) 
 3.	git add .
 	C:\project_folder>git add .
-	// Tell Git which files to include in the commit Object. But do not buils the new commit object!
+	// Tell Git which files to include in the commit Object. But do not builds the new commit object!
 	
 4	git commit -m
 	C:\project_folder> git commit -m "<your_message>"
